@@ -1,6 +1,6 @@
 import React from 'react';
 
-function PostItem({ post, key }) {
+function PostItem({ post }) {
   return (
     <div>
       <div className="post">
