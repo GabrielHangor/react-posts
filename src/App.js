@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
+import PostForm from './components/PostForm';
 import PostList from './components/PostList';
-import MyButton from './components/UI/button/MyButton';
-import MyInput from './components/UI/input/MyInput';
+
 import './styles/App.css';
 
 function App() {
@@ -11,41 +11,13 @@ function App() {
     { id: 3, title: 'Javascript', body: 'Description' },
   ]);
 
-  const [title, setTitle] = useState('');
-  const [body, setBody] = useState('');
-
-  const addNewPost = (e) => {
-    e.preventDefault();
-
-    const newPost = {
-      id: Date.now(),
-      title,
-      body,
-    };
-
-    setPosts([...posts, newPost]);
-    setTitle('');
-    setBody('');
-  };
+  const createPost = (newPost) => setPosts([...posts, newPost]);
+  const removePost = (post) => setPosts(posts.filter((p) => p.id !== post.id));
 
   return (
     <div className="App">
-      <form>
-        <MyInput
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
-          type="text"
-          placeholder="Название поста"
-        />
-        <MyInput
-          onChange={(e) => setBody(e.target.value)}
-          value={body}
-          type="text"
-          placeholder="Описание поста"
-        />
-        <MyButton onClick={addNewPost}>Создать пост</MyButton>
-      </form>
-      <PostList posts={posts} title={'Список постов'} />
+      <PostForm create={createPost} />
+      <PostList posts={posts} remove={removePost} title={'Список постов'} />
     </div>
   );
 }
