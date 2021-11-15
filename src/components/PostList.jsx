@@ -8,7 +8,7 @@ function PostList({ posts, title, remove }) {
   }
 
   return (
-    <div>
+    <div style={{ marginBottom: '20px' }}>
       <h1 style={{ textAlign: 'center' }}>{title}</h1>
       <TransitionGroup>
         {posts.map((post, index) => (
