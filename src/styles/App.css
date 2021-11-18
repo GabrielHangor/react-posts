@@ -30,6 +30,11 @@ body {
   align-items: center;
 }
 
+.post__content {
+  width: 95%;
+  margin-right: 20px;
+}
+
 .post-enter {
   transform: translateX(-1500px);
 }
