@@ -35,6 +35,11 @@ body {
   margin-right: 20px;
 }
 
+.post__btns {
+  display: flex;
+  flex-direction: column;
+}
+
 .post-enter {
   transform: translateX(-1500px);
 }

@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
-import { useFetching } from './../hooks/useFetching';
-import PostService from './../API/PostService';
-import Loader from './UI/Loader/Loader';
+import { useFetching } from '../hooks/useFetching';
+import PostService from '../API/PostService';
+import Loader from '../components/UI/Loader/Loader';
 
 function PostIdPage() {
   const params = useParams();
@@ -43,7 +43,7 @@ function PostIdPage() {
       ) : (
         <div>
           {comments.map((el) => (
-            <div style={{ marginTop: '15px' }}>
+            <div key={el.id} style={{ marginTop: '15px' }}>
               <h5>{el.email}</h5>
               <div>{el.body}</div>
             </div>
