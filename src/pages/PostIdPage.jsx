@@ -8,6 +8,7 @@ function PostIdPage() {
   const params = useParams();
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
+
   const [fetchPostsById, arePostsLoading, postError] = useFetching(
     async (id) => {
       const response = await PostService.getById(id);
